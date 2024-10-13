@@ -5,14 +5,13 @@ import 'package:recipe_app/core/constants/navigator_key.dart';
 
 class MessageShowhelper {
  static void showDialogBox({
-    required BuildContext context,
     required String dialogTitle,
     required String dialogContent,
     required String actionButtonName,
     required void Function()? buttonActionMethod,
   }) {
     showDialog(
-      context: context,
+      context: navigatorKey.currentContext!,
       builder: (context) => AlertDialog(
         title: TextWidgetCommon(
           text: dialogTitle,
@@ -39,10 +38,9 @@ class MessageShowhelper {
   }
 
  static void showSnackbar({
-    required BuildContext context,
     required String snackBarContent,
   }) {
-    ScaffoldMessenger.of(context)..hideCurrentSnackBar()..showSnackBar(
+    ScaffoldMessenger.of(navigatorKey.currentContext!)..hideCurrentSnackBar()..showSnackBar(
       SnackBar(
         content: TextWidgetCommon(
           text: snackBarContent,textColor: kWhite,

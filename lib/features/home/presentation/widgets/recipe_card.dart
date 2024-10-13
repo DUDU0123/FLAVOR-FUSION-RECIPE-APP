@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recipe_app/core/constants/colors.dart';
 import 'package:recipe_app/core/constants/height_width.dart';
 import 'package:recipe_app/features/home/domain/entity/recipe_entity.dart';
+import 'package:recipe_app/features/home/presentation/widgets/recipe_card_shimmer.dart';
 import 'package:recipe_app/features/home/presentation/widgets/recipe_info_show_widget.dart';
 
 class RecipeCard extends StatelessWidget {
@@ -43,6 +44,9 @@ class RecipeCard extends StatelessWidget {
               height: 200,
               width: double.infinity,
               fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return buildShimmer(height: 150);
+              },
             ),
           ),
           RecipeInfoShowWidget(recipe: recipe),

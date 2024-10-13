@@ -18,8 +18,7 @@ class RecipeHomePage extends StatelessWidget {
       body: BlocConsumer<RecipeBloc, RecipeState>(
         listener: (context, state) {
           if (state is RecipeErrorState) {
-            MessageShowhelper.showSnackbar(
-                context: context, snackBarContent: state.message);
+            MessageShowhelper.showSnackbar(snackBarContent: state.message);
           }
         },
         builder: (context, state) {
